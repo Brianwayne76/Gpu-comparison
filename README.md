@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33744638/README.md)
+[README.md](https://github.com/user-attachments/files/33744899/README.md)
 # 🚀 Verified GPU Comparison Guide
 
 ## Welcome to the Ultimate B580 vs RTX 4060 Review!
@@ -45,7 +45,7 @@
 
 All purchase links are powered by [Amazon Associates](https://affiliate-program.amazon.com/). We earn a small commission at no extra cost to you when you buy through our links.
 
-**🔗 Sign up for Amazon Associates**: weaverGenenoa@gmail.com
+**🔗 Amazon Associates Program**: Sign up at [amazon.com/affiliates](https://affiliate-program.amazon.com/) for your own affiliate account.
 
 ---
 
@@ -65,7 +65,7 @@ We earn a small commission from qualifying purchases made through our affiliate 
 
 ## 📞 Contact & Support
 
-Questions about this comparison? Reach out at **weaverGenenoa@gmail.com**
+Questions about this comparison? Reach out via contact form or email support.
 
 ---
 
