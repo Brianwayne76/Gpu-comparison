@@ -3,220 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechGPU - Complete PC Build Guides</title>
+    <title>TechGPU - Build Guides & GPU Comparisons</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            line-height: 1.7; 
-            color: #333; 
-            background: linear-gradient(135deg, #6b4fcc 0%, #a78bfa 100%);
-            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); 
+            padding: 40px 20px; 
+            min-height: 100vh;
         }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { 
+
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 50px 30px; 
             text-align: center; 
-            padding: 3.5rem 0; 
-            background: linear-gradient(135deg, #6b4fcc 0%, #a78bfa 100%);
-            color: white;
-            margin-bottom: 2rem;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
         }
-        header h1 { font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        header p { font-size: 1.3rem; opacity: 0.95; }
-        .badge-container { margin-top: 1rem; }
-        .badge { 
-            display: inline-block; 
-            padding: 0.5rem 1.2rem; 
-            background: rgba(255,255,255,0.2); 
-            border-radius: 25px; 
-            font-size: 0.95rem;
-            margin: 0.3rem;
+
+        .header h1 { 
+            font-size: 3em; 
+            margin-bottom: 15px; 
+            font-weight: 700; 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
         }
-        .guides-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
+
+        .header p { 
+            font-size: 1.3em; 
+            opacity: 0.95; 
+            max-width: 700px; 
+            margin: 0 auto;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .guides-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 40px;
+        }
+
         .guide-card { 
             background: white; 
             border-radius: 16px; 
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .guide-card:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-        }
-        .guide-card::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; 
-            height: 8px; 
-        }
-        .card-comparison::before { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); }
-        .card-budget::before { background: linear-gradient(90deg, #ff6b35 0%, #ff9900 100%); }
-        
-        .guide-card h2 { 
-            color: #333; 
-            font-size: 1.8rem; 
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .guide-badge { 
-            display: inline-block; 
-            padding: 0.4rem 1rem; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-        .badge-comparison { background: #f0e6ff; color: #7c3aed; border: 2px solid #d4a5f0; }
-        .badge-budget { background: #fff5e8; color: #c2410c; border: 2px solid #ff9f43; }
-        
-        .guide-card p { 
-            color: #666; 
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        .info-box { 
-            padding: 1.2rem 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .info-comparison { 
-            background: linear-gradient(135deg, #f0e6ff 0%, #e8d5f5 100%);
-            border-left: 4px solid #7c3aed;
-        }
-        .info-budget { 
-            background: linear-gradient(135deg, #fff5e8 0%, #ffe8cc 100%);
-            border-left: 4px solid #c2410c;
-        }
-        .info-box strong { 
-            display: block; 
-            font-size: 1.1rem; 
-            color: #4c1d95; 
-            margin-bottom: 0.5rem;
-        }
-        
-        .cta-button { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 0.8rem; 
-            padding: 1rem 2rem; 
-            background: linear-gradient(135deg, #6b4fcc 0%, #8b5cf6 100%);
-            color: white; 
-            text-decoration: none; 
-            border-radius: 12px; 
-            font-size: 1.2rem; 
-            font-weight: bold;
-            transition: opacity 0.3s, transform 0.3s;
+            overflow: hidden; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
-        .cta-button:hover { 
-            opacity: 0.9; 
-            transform: scale(1.05);
+
+        .guide-card:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
         }
-        .cta-button-budget { 
+
+        .guide-header { 
+            padding: 30px; 
+            text-align: center; 
+            color: white;
+        }
+
+        .budget-card .guide-header { 
             background: linear-gradient(135deg, #ff6b35 0%, #ff9900 100%);
         }
-        .cta-button-comparison { 
+
+        .comparison-card .guide-header { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
-        .footer-section { 
-            background: rgba(255,255,255,0.9); 
-            border-radius: 16px; 
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
+
+        .guide-header h2 { 
+            font-size: 1.8em; 
+            margin-bottom: 10px; 
+            font-weight: 600;
         }
-        footer { 
+
+        .guide-badge { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 0.9em; 
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .budget-card .guide-badge { 
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-card .guide-badge { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .guide-body { 
+            padding: 30px; 
+        }
+
+        .guide-body h3 { 
+            color: #667eea; 
+            font-size: 1.3em; 
+            margin-bottom: 15px; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-body p { 
+            color: #555; 
+            line-height: 1.8; 
+            margin-bottom: 20px; 
+            text-align: justify;
+        }
+
+        .cta-button { 
+            display: inline-block; 
+            padding: 16px 24px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
             text-align: center; 
-            padding: 2rem; 
-            color: white;
-            margin-top: 2rem;
-            font-size: 0.9rem;
+            border-radius: 8px; 
+            font-weight: 600; 
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            width: 100%;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-            text-align: center;
+
+        .budget-card .cta-button { 
+            background: linear-gradient(135deg, #ff6b35 0%, #ff9900 100%);
         }
-        .feature-item {
-            padding: 0.8rem;
+
+        .cta-button:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .budget-card .cta-button:hover { 
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .features-list { 
+            list-style: none; 
+            margin: 20px 0;
+        }
+
+        .features-list li { 
+            padding: 8px 0; 
+            border-bottom: 1px solid #f0f0f0; 
+            font-size: 0.95em; 
             color: #666;
-            font-size: 0.95rem;
         }
-        .feature-icon { 
-            display: block; 
-            font-size: 1.5rem; 
-            margin-bottom: 0.3rem;
+
+        .features-list li:last-child { 
+            border-bottom: none; 
+        }
+
+        .features-list li::before { 
+            content: "✓ "; 
+            color: #11998e; 
+            font-weight: bold;
+        }
+
+        .footer { 
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); 
+            color: white; 
+            padding: 40px; 
+            text-align: center; 
+            border-top: 4px solid #667eea;
+        }
+
+        .footer p { 
+            font-size: 1em; 
+            opacity: 0.9; 
+            margin-bottom: 10px;
+        }
+
+        .footer a { 
+            color: #667eea; 
+            text-decoration: none; 
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2em; }
+            .guides-grid { grid-template-columns: 1fr; }
+            .guide-header h2 { font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🖥️ TechGPU PC Build Guides</h1>
-            <p>Your complete resource for choosing the perfect GPU and building high-performance gaming PCs!</p>
-            <div class="badge-container">
-                <span class="badge">✅ All Amazon Links Verified • 🔗 TechGPU 20 Affiliate Tag • 💯 Real-World Benchmarks</span>
-            </div>
-        </header>
-
-        <div class="guides-container">
-            <!-- COMPARISON GUIDE -->
-            <a href="Intel_ARC_B580_vs_RTX_4060_BY_BRIAN_WAYNE_CLEAN.html" class="guide-card card-comparison">
-                <span class="guide-badge badge-comparison">📊 GPU Comparison Guide</span>
-                <h2>💻 Intel ARC B580 vs NVIDIA RTX 4060</h2>
-                <p>Complete buyer's guide with real-world benchmarks, verified TechPowerUp specs, and detailed performance analysis!</p>
-                
-                <div class="info-box info-comparison">
-                    <strong>🔥 Key Features:</strong>
-                    <div class="features-grid">
-                        <div class="feature-item"><span class="feature-icon">⚡</span>Performance Benchmarks</div>
-                        <div class="feature-item"><span class="feature-icon">💰</span>Price Analysis</div>
-                        <div class="feature-item"><span class="feature-icon">📈</span>Benchmark Data</div>
-                    </div>
-                </div>
-
-                <a href="Intel_ARC_B580_vs_RTX_4060_BY_BRIAN_WAYNE_CLEAN.html" class="cta-button cta-button-comparison">🔗 Start Your GPU Comparison →</a>
-            </a>
-
-            <!-- BUDGET BUILD GUIDE -->
-            <a href="Budget_PC_Build_1000_UPDATED.html" class="guide-card card-budget">
-                <span class="guide-badge badge-budget">💰 Budget Build Guide ($1000)</span>
-                <h2>🎮 Best Value Gaming PC Under $1000</h2>
-                <p>Build a powerful gaming PC for under $1000!</p>
-                
-                <div class="info-box info-budget">
-                    <strong>🚀 Performance Highlights:</strong>
-                    <div class="features-grid">
-                        <div class="feature-item"><span class="feature-icon">🎮</span>60-90 FPS AAA</div>
-                        <div class="feature-item"><span class="feature-icon">⚡</span>DLLS/FSR Support</div>
-                        <div class="feature-item"><span class="feature-icon">💪</span>1080p Gaming</div>
-                    </div>
-                </div>
-
-                <a href="Budget_PC_Build_1000_UPDATED.html" class="cta-button cta-button-budget">🔗 Open Budget Build Guide →</a>
-            </a>
-        </div>
-
-        <div class="footer-section">
-            <p><strong>💡 Quick Tips:</strong></p>
-            <p style="color: #666; margin-top: 0.5rem;">All Amazon links include our TechGPU affiliate tag for customer support benefits!</p>
-            <p style="margin-top: 0.25rem; color: #888;">Prices fluctuate daily - click components to see live pricing!</p>
-        </div>
-
-        <footer>
-            <p>© 2026 TechGPU - Verified GPU Guides & PC Build Resources</p>
-        </footer>
+    <div class="header">
+        <h1>🚀 TechGPU Build Guides & Comparisons</h1>
+        <p>Your complete resource for budget-conscious PC builds and GPU performance analysis</p>
     </div>
+
+    <div class="container">
+        <div class="guides-grid">
+            <!-- Budget PC Build Guide -->
+            <a href="Budget_PC_Build_1000_UPDATED.html" class="guide-card budget-card">
+                <div class="guide-header">
+                    <h2>💰 Budget PC Build ($1,000)</h2>
+                    <span class="guide-badge">🏆 Best Value Pick</span>
+                </div>
+                <div class="guide-body">
+                    <h3>🎯 Perfect for Budget Gamers & Content Creators</h3>
+                    <p>Complete budget PC build guide optimized for gaming and content creation without breaking the bank. Includes CPU, GPU, motherboard, RAM, SSD, PSU and all essential components.</p>
+                    
+                    <ul class="features-list">
+                        <li>AMD Ryzen 5 5600 (Budget Pick)</li>
+                        <li>Optimized for 1080p-1440p Gaming</li>
+                        <li>All verified Amazon links with affiliate tag</li>
+                        <li>Complete build guide from CPU to PSU</li>
+                    </ul>
+
+                    <div class="cta-button">View Budget Build Guide →</div>
+                </div>
+            </a>
+
+            <!-- Intel ARC B580 vs RTX 4060 Comparison -->
+            <a href="Intel_ARC_B580_vs_RTX_4060_Comparison.html" class="guide-card comparison-card">
+                <div class="guide-header">
+                    <h2>🔬 GPU Showdown: Intel B580 vs RTX 4060</h2>
+                    <span class="guide-badge">⚡ Head-to-Head Comparison</span>
+                </div>
+                <div class="guide-body">
+                    <h3>📊 In-Depth GPU Analysis & Performance Testing</h3>
+                    <p>Comprehensive technical comparison of Intel ARC B580 vs NVIDIA RTX 4060 with verified specs, real-world benchmarks, streaming guides, and buying recommendations for 2026 gamers and creators.</p>
+                    
+                    <ul class="features-list">
+                        <li>12GB VRAM vs 8GB VRAM Analysis</li>
+                        <li>OBS Streaming Setup Guides</li>
+                        <li>Gaming Performance Benchmarks</li>
+                        <li>Creative Workload Comparison</li>
+                    </ul>
+
+                    <div class="cta-button">View GPU Comparison →</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p><strong>TechGPU Verified Content • TechPowerUp Benchmarks Cross-Referenced</strong></p>
+        <p>All links include our techgpu-20 affiliate tag for customer support benefits.</p>
+        <p style="font-size: 0.85em; opacity: 0.7; margin-top: 15px;">© 2026 TechGPU - All Rights Reserved | Build Guides & GPU Comparisons</p>
+    </footer>
 </body>
 </html>
