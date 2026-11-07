@@ -39,29 +39,16 @@
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
         }
         .guide-card:hover { 
             transform: translateY(-8px) scale(1.02); 
             box-shadow: 0 8px 30px rgba(0,0,0,0.25);
         }
-        .guide-card::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; 
-            height: 8px; 
-        }
-        .card-comparison::before { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); }
-        .card-budget::before { background: linear-gradient(90deg, #ff6b35 0%, #ff9900 100%); }
         
         .guide-card h2 { 
             color: #333; 
             font-size: 1.8rem; 
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
         }
         .guide-badge { 
             display: inline-block; 
@@ -77,15 +64,12 @@
         .guide-card p { 
             color: #666; 
             font-size: 1.1rem;
-            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
         .info-box { 
             padding: 1.2rem 1.5rem;
             border-radius: 12px;
             margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
         }
         .info-comparison { 
             background: linear-gradient(135deg, #f0e6ff 0%, #e8d5f5 100%);
@@ -94,12 +78,6 @@
         .info-budget { 
             background: linear-gradient(135deg, #fff5e8 0%, #ffe8cc 100%);
             border-left: 4px solid #c2410c;
-        }
-        .info-box strong { 
-            display: block; 
-            font-size: 1.1rem; 
-            color: #4c1d95; 
-            margin-bottom: 0.5rem;
         }
         
         .cta-button { 
@@ -113,50 +91,17 @@
             border-radius: 12px; 
             font-size: 1.2rem; 
             font-weight: bold;
-            transition: opacity 0.3s, transform 0.3s;
-            cursor: pointer;
         }
-        .cta-button:hover { 
-            opacity: 0.9; 
-            transform: scale(1.05);
-        }
+        .cta-button:hover { opacity: 0.9; }
         .cta-button-budget { 
             background: linear-gradient(135deg, #ff6b35 0%, #ff9900 100%);
         }
-        .cta-button-comparison { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
         
-        .footer-section { 
-            background: rgba(255,255,255,0.9); 
-            border-radius: 16px; 
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
         footer { 
             text-align: center; 
             padding: 2rem; 
             color: white;
             margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        .feature-item {
-            padding: 0.8rem;
-            color: #666;
-            font-size: 0.95rem;
-        }
-        .feature-icon { 
-            display: block; 
-            font-size: 1.5rem; 
-            margin-bottom: 0.3rem;
         }
     </style>
 </head>
@@ -166,56 +111,51 @@
             <h1>🖥️ TechGPU-20 PC Build Guides</h1>
             <p>Your complete resource for choosing the perfect GPU and building high-performance gaming PCs!</p>
             <div class="badge-container">
-                <span class="badge">✅ All Amazon Links Verified • 🔗 TechGPU-20 Affiliate Tag • 💯 Real-World Benchmarks</span>
+                <span class="badge">Verified Links • TechGPU-20 Affiliate Tag • Real Benchmarks</span>
             </div>
         </header>
 
         <div class="guides-container">
             <!-- COMPARISON GUIDE -->
-            <a href="Budget_PC_BUILD_800.html" class="guide-card card-comparison">
+            <div class="guide-card">
                 <span class="guide-badge badge-comparison">📊 GPU Comparison Guide</span>
                 <h2>💻 Intel ARC B580 vs NVIDIA RTX 4060</h2>
-                <p>Complete buyer's guide with real-world benchmarks, verified TechPowerUp specs, and detailed performance analysis!</p>
+                <p>Complete buyer's guide with real-world benchmarks, verified specs, and performance analysis!</p>
                 
                 <div class="info-box info-comparison">
                     <strong>🔥 Key Features:</strong>
-                    <div class="features-grid">
-                        <div class="feature-item"><span class="feature-icon">⚡</span>Performance Benchmarks</div>
-                        <div class="feature-item"><span class="feature-icon">💰</span>Price Analysis</div>
-                        <div class="feature-item"><span class="feature-icon">📈</span>Benchmark Data</div>
-                    </div>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                        <li>Performance Benchmarks</li>
+                        <li>Price Analysis</li>
+                        <li>Benchmark Data</li>
+                    </ul>
                 </div>
 
-                <a href="Budget_PC_BUILD_800.html" class="cta-button cta-button-comparison">🔗 Start Your GPU Comparison →</a>
-            </a>
+                <a href="Intel_ARC_B580_vs_RTX_4060_Comparison.html" class="cta-button">🔗 Start Your GPU Comparison →</a>
+            </div>
 
             <!-- BUDGET BUILD GUIDE -->
-            <a href="Budget_PC_Build_1000_UPDATED.html" class="guide-card card-budget">
+            <div class="guide-card">
                 <span class="guide-badge badge-budget">💰 Budget Build Guide ($1000)</span>
                 <h2>🎮 Best Value Gaming PC Under $1000</h2>
-                <p>Build a powerful gaming PC for under $1000!</p>
+                <p>Build a powerful gaming PC for under $1000 with modern components!</p>
                 
                 <div class="info-box info-budget">
                     <strong>🚀 Performance Highlights:</strong>
-                    <div class="features-grid">
-                        <div class="feature-item"><span class="feature-icon">🎮</span>60-90 FPS AAA</div>
-                        <div class="feature-item"><span class="feature-icon">⚡</span>DLLS/FSR Support</div>
-                        <div class="feature-item"><span class="feature-icon">💪</span>1080p Gaming</div>
-                    </div>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                        <li>60-90 FPS AAA Gaming</li>
+                        <li>DLLS/FSR Support</li>
+                        <li>1080p Ready Performance</li>
+                    </ul>
                 </div>
 
                 <a href="Budget_PC_Build_1000_UPDATED.html" class="cta-button cta-button-budget">🔗 Open Budget Build Guide →</a>
-            </a>
-        </div>
-
-        <div class="footer-section">
-            <p><strong>💡 Quick Tips:</strong></p>
-            <p style="color: #666; margin-top: 0.5rem;">All Amazon links include our TechGPU-20 affiliate tag for customer support benefits!</p>
-            <p style="margin-top: 0.25rem; color: #888;">Prices fluctuate daily - click components to see live pricing!</p>
+            </div>
         </div>
 
         <footer>
-            <p>© 2026 TechGPU-20 - Verified GPU Guides & PC Build Resources</p>
+            <p style="color: #666; margin-top: 0.5rem;">💡 All Amazon links include our TechGPU-20 affiliate tag for customer support benefits!</p>
+            <p style="margin-top: 0.25rem; color: #888;">Prices fluctuate daily - click components to see live pricing!</p>
         </footer>
     </div>
 </body>
